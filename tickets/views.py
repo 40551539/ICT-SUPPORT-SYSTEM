@@ -120,6 +120,7 @@ def ticket_detail(request, pk):
         'recommended_solutions': recommended_solutions,
         'is_staff_user': is_staff_user,
         'status_choices': Ticket.STATUS_CHOICES,
+        'attachments': ticket.attachments.select_related('uploaded_by').order_by('-uploaded_at'),
     })
 
 
@@ -147,14 +148,21 @@ def ticket_create(request):
 @login_required
 def ticket_update(request, pk):
     ticket = get_object_or_404(Ticket, pk=pk)
+
+    if request.user.role == 'student' and ticket.created_by != request.user:
+        messages.error(request, "You do not have permission to edit this ticket.")
+        return redirect('tickets:detail', pk=pk)
+
+    FormClass = TicketCreateForm if request.user.role == 'student' else TicketUpdateForm
+
     if request.method == 'POST':
-        form = TicketUpdateForm(request.POST, instance=ticket)
+        form = FormClass(request.POST, instance=ticket)
         if form.is_valid():
             form.save()
             messages.success(request, 'Ticket updated.')
             return redirect('tickets:detail', pk=pk)
     else:
-        form = TicketUpdateForm(instance=ticket)
+        form = FormClass(instance=ticket)
     return render(request, 'tickets/ticket_form.html', {'form': form, 'title': 'Update Ticket'})
 
 

@@ -228,7 +228,19 @@
                 <h6 class="m-0 font-weight-bold text-primary">Attachments</h6>
             </div>
             <div class="card-body">
-                <p class="text-muted small">File upload feature coming in next update.</p>
+                {% if attachments %}
+                <ul class="list-unstyled mb-0">
+                    {% for a in attachments %}
+                    <li class="d-flex align-items-center gap-2 mb-2">
+                        <i class="bi bi-paperclip text-muted"></i>
+                        <a href="{{ a.file.url }}" target="_blank" rel="noopener">{{ a.file.name|slice:"20:" }}</a>
+                        <span class="text-muted small ms-auto">{{ a.uploaded_at|date:"M d, Y" }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p class="text-muted small mb-0">No attachments on this ticket.</p>
+                {% endif %}
             </div>
         </div>
     </div>
