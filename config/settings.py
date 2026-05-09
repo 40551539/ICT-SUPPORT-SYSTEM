@@ -1,23 +1,25 @@
-"""
-Django settings for ICT Help Desk Support System.
-"""
 import os
+import dj_database_url
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-s3cr3t-k3y-ch4ng3-th1s-1n-pr0duct10n!'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-s3cr3t-k3y-ch4ng3-th1s-1n-pr0duct10n!')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    'ticketsystem.innbucks.org',
+    '.vercel.app',
+    'localhost',
+    '127.0.0.1',
+]
 
-# --------------------------------------------------------------------------
-# Application definition
-# --------------------------------------------------------------------------
+CSRF_TRUSTED_ORIGINS = [
+    'https://ticketsystem.innbucks.org',
+    'https://*.vercel.app',
+]
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -25,7 +27,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Project apps
     'users.apps.UsersConfig',
     'tickets.apps.TicketsConfig',
     'reports.apps.ReportsConfig',
@@ -63,18 +64,21 @@ TEMPLATES = [
 WSGI_APPLICATION = 'config.wsgi.application'
 
 # --------------------------------------------------------------------------
-# Database — SQLite for local dev, PostgreSQL for production
+# Database — PostgreSQL in production via DATABASE_URL, SQLite locally
 # --------------------------------------------------------------------------
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+DATABASE_URL = os.environ.get('DATABASE_URL')
+if DATABASE_URL:
+    DATABASES = {
+        'default': dj_database_url.parse(DATABASE_URL, conn_max_age=600, ssl_require=True)
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
-# --------------------------------------------------------------------------
-# Password validation
-# --------------------------------------------------------------------------
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
@@ -82,18 +86,12 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
-# --------------------------------------------------------------------------
-# Internationalization
-# --------------------------------------------------------------------------
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'Africa/Nairobi'
 USE_I18N = True
 USE_TZ = True
 
-# --------------------------------------------------------------------------
-# Static files (CSS, JavaScript, Images)
-# --------------------------------------------------------------------------
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STORAGES = {
@@ -102,30 +100,15 @@ STORAGES = {
     },
 }
 
-# --------------------------------------------------------------------------
-# Media files (Uploads)
-# --------------------------------------------------------------------------
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-# --------------------------------------------------------------------------
-# Custom User Model
-# --------------------------------------------------------------------------
 AUTH_USER_MODEL = 'users.User'
 
-# --------------------------------------------------------------------------
-# Auth redirects
-# --------------------------------------------------------------------------
 LOGIN_REDIRECT_URL = '/dashboard/'
 LOGIN_URL = '/users/login/'
 LOGOUT_REDIRECT_URL = '/users/login/'
 
-# --------------------------------------------------------------------------
-# Email — Console backend for demo (prints to terminal)
-# --------------------------------------------------------------------------
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-# --------------------------------------------------------------------------
-# Default primary key field type
-# --------------------------------------------------------------------------
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
