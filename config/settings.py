@@ -9,13 +9,17 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-s3cr3t-k3y-ch4ng3-th1
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = [
+    'tickets.innbucks.org',
     'ticketsystem.innbucks.org',
     '.vercel.app',
     'localhost',
     '127.0.0.1',
+    '79.143.178.165',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
+    'https://tickets.innbucks.org',
+    'http://tickets.innbucks.org',
     'https://ticketsystem.innbucks.org',
     'https://*.vercel.app',
 ]
