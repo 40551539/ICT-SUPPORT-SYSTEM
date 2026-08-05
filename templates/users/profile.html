@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+
+{% block page_title %}Create Account{% endblock %}
+{% block body_class %}auth{% endblock %}
+
+{% block content %}
+<section class="auth-shell">
+    <div class="auth-card" style="grid-template-columns: 1fr 1.2fr;">
+        <!-- Hero -->
+        <div class="auth-hero">
+            <div class="auth-brand"><i class="bi bi-headset"></i> ICT Help Desk</div>
+            <h1>Get support, fast.</h1>
+            <p>Create your account to submit and track technical support requests with the CUEA ICT team.</p>
+            <div class="auth-highlights" style="margin-top: 32px;">
+                <div class="auth-highlight">
+                    <i class="bi bi-ticket-detailed me-2"></i> Submit & track tickets in real time
+                </div>
+                <div class="auth-highlight">
+                    <i class="bi bi-bell me-2"></i> Get email updates on every status change
+                </div>
+                <div class="auth-highlight">
+                    <i class="bi bi-shield-check me-2"></i> Secure account access
+                </div>
+            </div>
+            <p class="mt-4" style="opacity:.7; font-size:.85rem;">
+                Already have an account?
+                <a href="{% url 'users:login' %}" style="color:#fcd116; font-weight:600;">Sign in →</a>
+            </p>
+        </div>
+
+        <!-- Form -->
+        <div class="auth-form" style="padding: 48px 44px; overflow-y: auto; max-height: 100vh;">
+            <h2 style="font-size:1.6rem; margin-bottom:4px;">Create your account</h2>
+            <p class="subtext">Fill in your details to create your account.</p>
+
+            <form id="register-form" method="post" novalidate>
+                {% csrf_token %}
+
+                <!-- Name row -->
+                <div class="row g-3 mb-3">
+                    <div class="col-6">
+                        <label class="form-label fw-semibold small">
+                            <i class="bi bi-person me-1 text-muted"></i> First Name <span class="text-danger">*</span>
+                        </label>
+                        {{ form.first_name }}
+                        {% for e in form.first_name.errors %}<div class="text-danger small mt-1">{{ e }}</div>{% endfor %}
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label fw-semibold small">
+                            <i class="bi bi-person me-1 text-muted"></i> Last Name <span class="text-danger">*</span>
+                        </label>
+                        {{ form.last_name }}
+                        {% for e in form.last_name.errors %}<div class="text-danger small mt-1">{{ e }}</div>{% endfor %}
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="mb-3">
+                    <label class="form-label fw-semibold small">
+                        <i class="bi bi-envelope me-1 text-muted"></i> Email Address <span class="text-danger">*</span>
+                    </label>
+                    {{ form.email }}
+                    {% for e in form.email.errors %}<div class="text-danger small mt-1">{{ e }}</div>{% endfor %}
+                    <small class="text-muted">This will be your login email.</small>
+                </div>
+
+                <!-- Role & Department -->
+                <div class="row g-3 mb-3">
+                    <div class="col-6">
+                        <label class="form-label fw-semibold small">
+                            <i class="bi bi-people me-1 text-muted"></i> Role <span class="text-danger">*</span>
+                        </label>
+                        {{ form.role }}
+                        {% for e in form.role.errors %}<div class="text-danger small mt-1">{{ e }}</div>{% endfor %}
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label fw-semibold small">
+                            <i class="bi bi-building me-1 text-muted"></i> Department
+                        </label>
+                        {{ form.department }}
+                        {% for e in form.department.errors %}<div class="text-danger small mt-1">{{ e }}</div>{% endfor %}
+                    </div>
+                </div>
+
+                <!-- Phone -->
+                <div class="mb-3">
+                    <label class="form-label fw-semibold small">
+                        <i class="bi bi-phone me-1 text-muted"></i> Phone Number
+                    </label>
+                    {{ form.phone }}
+                    {% for e in form.phone.errors %}<div class="text-danger small mt-1">{{ e }}</div>{% endfor %}
+                </div>
+
+                <!-- Password -->
+                <div class="row g-3 mb-4">
+                    <div class="col-6">
+                        <label class="form-label fw-semibold small">
+                            <i class="bi bi-lock me-1 text-muted"></i> Password <span class="text-danger">*</span>
+                        </label>
+                        <div class="input-group">
+                            <input type="password" name="password1" id="id_password1" class="form-control auth-input" placeholder="Min. 8 characters" required style="border-radius:12px 0 0 12px;">
+                            <button type="button" class="btn btn-outline-secondary toggle-pw" data-target="id_password1" tabindex="-1" style="border-radius:0 12px 12px 0; border-left:0;">
+                                <i class="bi bi-eye"></i>
+                            </button>
+                        </div>
+                        {% for e in form.password1.errors %}<div class="text-danger small mt-1">{{ e }}</div>{% endfor %}
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label fw-semibold small">
+                            <i class="bi bi-lock-fill me-1 text-muted"></i> Confirm <span class="text-danger">*</span>
+                        </label>
+                        <div class="input-group">
+                            <input type="password" name="password2" id="id_password2" class="form-control auth-input" placeholder="Repeat your password" required style="border-radius:12px 0 0 12px;">
+                            <button type="button" class="btn btn-outline-secondary toggle-pw" data-target="id_password2" tabindex="-1" style="border-radius:0 12px 12px 0; border-left:0;">
+                                <i class="bi bi-eye"></i>
+                            </button>
+                        </div>
+                        {% for e in form.password2.errors %}<div class="text-danger small mt-1">{{ e }}</div>{% endfor %}
+                    </div>
+                </div>
+
+                {% if form.non_field_errors %}
+                <div class="alert alert-danger py-2 small mb-3">
+                    {% for e in form.non_field_errors %}{{ e }}{% endfor %}
+                </div>
+                {% endif %}
+
+                <button type="submit" class="btn btn-primary auth-action w-100" data-loading-text="Creating account...">
+                    <i class="bi bi-person-plus me-2"></i> Create Account
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.querySelectorAll('.toggle-pw').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            const input = document.getElementById(btn.dataset.target);
+            const icon = btn.querySelector('i');
+            const isHidden = input.type === 'password';
+            input.type = isHidden ? 'text' : 'password';
+            icon.className = isHidden ? 'bi bi-eye-slash' : 'bi bi-eye';
+        });
+    });
+</script>
+<script>
+// Client-side registration form validation
+(function(){
+    function isEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+    function validateRegisterForm(evt){
+        const first = document.querySelector('#id_first_name')?.value.trim() || '';
+        const last  = document.querySelector('#id_last_name')?.value.trim() || '';
+        const email = document.querySelector('#id_email')?.value.trim() || '';
+        const pw1   = document.querySelector('#id_password1')?.value || '';
+        const pw2   = document.querySelector('#id_password2')?.value || '';
+        const role  = document.querySelector('#id_role')?.value || '';
+        if(!first || !last){ alert('Enter first and last name'); evt.preventDefault(); return false; }
+        if(!isEmail(email)){ alert('Enter a valid email'); evt.preventDefault(); return false; }
+        if(pw1.length < 8){ alert('Password must be at least 8 characters'); evt.preventDefault(); return false; }
+        if(pw1 !== pw2){ alert('Passwords do not match'); evt.preventDefault(); return false; }
+        if(!['student','staff','technician','admin'].includes(role)){ /* allow server error if absent */ }
+        return true;
+    }
+    document.addEventListener('DOMContentLoaded', function(){
+        const f = document.getElementById('register-form');
+        if(f) f.addEventListener('submit', validateRegisterForm);
+    });
+})();
+</script>
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block page_title %}Kanban Board{% endblock %}
+
+{% block extra_css %}
+<style>
+    .kanban-col {
+        min-height: 500px;
+        background-color: #f1f3f6;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    .kanban-card {
+        background: white;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        cursor: grab;
+        border-left: 4px solid #4e73df;
+    }
+
+    .kanban-card:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .priority-critical {
+        border-left-color: #e74a3b;
+    }
+
+    .priority-high {
+        border-left-color: #f6c23e;
+    }
+
+    .priority-medium {
+        border-left-color: #36b9cc;
+    }
+
+    .priority-low {
+        border-left-color: #1cc88a;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="row flex-nowrap overflow-auto pb-4">
+    <!-- Open Column -->
+    <div class="col-md-3 min-vw-25">
+        <h6 class="text-uppercase text-danger font-weight-bold mb-3">Open ({{ open_tickets.count }})</h6>
+        <div class="kanban-col">
+            {% for ticket in open_tickets %}
+            {% include 'tickets/kanban_card.html' with ticket=ticket %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- In Progress Column -->
+    <div class="col-md-3 min-vw-25">
+        <h6 class="text-uppercase text-warning font-weight-bold mb-3">In Progress ({{ in_progress_tickets.count }})</h6>
+        <div class="kanban-col">
+            {% for ticket in in_progress_tickets %}
+            {% include 'tickets/kanban_card.html' with ticket=ticket %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Resolved Column -->
+    <div class="col-md-3 min-vw-25">
+        <h6 class="text-uppercase text-info font-weight-bold mb-3">Resolved ({{ resolved_tickets.count }})</h6>
+        <div class="kanban-col">
+            {% for ticket in resolved_tickets %}
+            {% include 'tickets/kanban_card.html' with ticket=ticket %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Closed Column -->
+    <div class="col-md-3 min-vw-25">
+        <h6 class="text-uppercase text-success font-weight-bold mb-3">Closed ({{ closed_tickets.count }})</h6>
+        <div class="kanban-col">
+            {% for ticket in closed_tickets %}
+            {% include 'tickets/kanban_card.html' with ticket=ticket %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

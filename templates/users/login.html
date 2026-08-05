@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block page_title %}Sign In{% endblock %}
+{% block body_class %}auth{% endblock %}
+
+{% block content %}
+<section class="auth-shell">
+    <div class="auth-card">
+        <!-- Hero -->
+        <div class="auth-hero">
+            <div class="auth-brand"><i class="bi bi-headset"></i> ICT Help Desk</div>
+            <h1>Welcome back.</h1>
+            <p>Sign in to track requests, coordinate with technicians, and keep service flowing.</p>
+            <div class="auth-highlights">
+                <div class="auth-highlight">
+                    <i class="bi bi-speedometer2 me-2"></i> Real-time ticket status at a glance
+                </div>
+                <div class="auth-highlight">
+                    <i class="bi bi-chat-dots me-2"></i> Direct updates from your support team
+                </div>
+                <div class="auth-highlight">
+                    <i class="bi bi-kanban me-2"></i> Kanban board for technicians & staff
+                </div>
+            </div>
+            <p class="mt-4" style="opacity:.7; font-size:.85rem;">
+                No account yet?
+                <a href="{% url 'users:register' %}" style="color:#fcd116; font-weight:600;">Create one →</a>
+            </p>
+        </div>
+
+        <!-- Form -->
+        <div class="auth-form">
+            <h2>Sign in</h2>
+            <p class="subtext">Use your email and password to continue.</p>
+
+            {% if form.errors %}
+            <div id="authToastPayload" class="d-none">
+                <div data-toast-message="Incorrect email or password. Please try again." data-toast-tags="error"></div>
+            </div>
+            {% endif %}
+
+            <form method="post" novalidate>
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label fw-semibold small">
+                        <i class="bi bi-envelope me-1 text-muted"></i> Email Address
+                    </label>
+                    <input
+                        type="email"
+                        name="username"
+                        class="form-control auth-input"
+                        placeholder="Enter your email address"
+                        autocomplete="email"
+                        autofocus
+                        required
+                    >
+                </div>
+                <div class="mb-4">
+                    <label class="form-label fw-semibold small">
+                        <i class="bi bi-lock me-1 text-muted"></i> Password
+                    </label>
+                    <div class="input-group">
+                        <input
+                            type="password"
+                            name="password"
+                            id="id_password_login"
+                            class="form-control auth-input"
+                            placeholder="Your password"
+                            required
+                        >
+                        <button type="button" class="btn btn-outline-secondary" id="togglePasswordLogin" tabindex="-1" style="border-radius:0 12px 12px 0; border-left:0;">
+                            <i class="bi bi-eye" id="togglePasswordLoginIcon"></i>
+                        </button>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary auth-action w-100" data-loading-text="Signing in...">
+                    <i class="bi bi-box-arrow-in-right me-2"></i> Sign In
+                </button>
+            </form>
+
+            <div class="text-center mt-4 small text-muted">
+                Don't have an account?
+                <a class="auth-link" href="{% url 'users:register' %}">Create one free</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.getElementById('togglePasswordLogin').addEventListener('click', function () {
+        const input = document.getElementById('id_password_login');
+        const icon = document.getElementById('togglePasswordLoginIcon');
+        const isHidden = input.type === 'password';
+        input.type = isHidden ? 'text' : 'password';
+        icon.className = isHidden ? 'bi bi-eye-slash' : 'bi bi-eye';
+    });
+</script>
+{% endblock %}

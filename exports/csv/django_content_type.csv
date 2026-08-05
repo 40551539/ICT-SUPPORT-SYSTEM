@@ -1,0 +1,14 @@
+id,app_label,model
+1,admin,logentry
+2,auth,permission
+3,auth,group
+4,contenttypes,contenttype
+5,sessions,session
+6,users,user
+7,users,emailverification
+8,tickets,attachment
+9,tickets,category
+10,tickets,comment
+11,tickets,ticket
+12,tickets,feedback
+13,tickets,internalnote

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block page_title %}Verify Email{% endblock %}
+{% block body_class %}auth{% endblock %}
+
+{% block content %}
+<section class="auth-shell">
+    <div class="auth-card">
+        <div class="auth-hero">
+            <div class="auth-brand"><i class="bi bi-shield-lock"></i> ICT Support</div>
+            <h1>Check your email.</h1>
+            <p>We sent a 6-digit verification code to <strong>{{ email }}</strong>. Enter it below to activate your account.</p>
+            <div class="auth-highlights">
+                <div class="auth-highlight"><i class="bi bi-clock me-2"></i>Code expires in 10 minutes.</div>
+                <div class="auth-highlight"><i class="bi bi-envelope me-2"></i>Check your spam folder if you don't see it.</div>
+            </div>
+        </div>
+        <div class="auth-form">
+            <h2>Enter your code</h2>
+            <p class="subtext">Type the 6-digit code sent to your email address.</p>
+
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-4">
+                    <label class="form-label fw-semibold">Verification Code</label>
+                    <input
+                        type="text"
+                        name="code"
+                        class="form-control auth-input text-center fw-bold"
+                        style="font-size: 2rem; letter-spacing: 0.5rem;"
+                        maxlength="6"
+                        minlength="6"
+                        pattern="\d{6}"
+                        placeholder="______"
+                        autofocus
+                        required
+                    >
+                </div>
+                <button type="submit" class="btn btn-primary auth-action w-100" data-loading-text="Verifying...">
+                    Verify & Activate Account
+                </button>
+            </form>
+
+            <div class="text-center mt-4">
+                <a class="auth-link" href="{% url 'users:register' %}">Start over</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

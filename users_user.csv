@@ -1,0 +1,10 @@
+id,password,last_login,is_superuser,username,first_name,last_name,email,is_staff,is_active,date_joined,role,phone,department
+1,pbkdf2_sha256$1000000$EkK6Ld32U8mnZz0HPjyeXq$wAOyDRqSdVOv3aYuFIXuKCFSOXkw3o3VlTj+TQapgo8=,2026-06-13 18:50:22.343209,0,sharonondieki700,sharon,ondieki,sharonondieki700@gmail.com,0,1,2026-06-13 18:21:14.644749,admin,0769976297,ICT
+2,pbkdf2_sha256$1000000$VhIOLnYFFwg3klldJIHAti$6yc6QUCYlRwdCUO8fzglnnGoQcoa5hTA5PIbd274Y/U=,2026-06-13 18:23:40.693981,0,james3,JAMES,ONDIEKI,james3@gmail.com,0,1,2026-06-13 18:23:03.555392,student,0769976297,Finance
+3,pbkdf2_sha256$1000000$dj8bBmRQtsCQLBZHN5IgvE$tRStuIDRXHrHy7JBwrPl6ZAIQ9iR6deFk9vS6DmEZIA=,2026-06-13 18:28:25.874348,0,savatia2,JANE,SAVATIA,savatia2@gmail.com,0,1,2026-06-13 18:27:37.439193,staff,0715309401,Education
+4,pbkdf2_sha256$1000000$oCk7iJtAcOXNTKWvAnkDsm$/XUMhXsO+ys8WIyQhLfPFuR9YZULzLMZrdrmMZSDNFI=,2026-06-13 18:33:22.610026,0,ondieki700,WALLACE,OSANO,ondieki700@gmail.com,0,1,2026-06-13 18:33:00.917829,technician,0769976297,ICT
+5,pbkdf2_sha256$1000000$3eHREoCzdfgduPMqoGgFzx$Lb5xB6GyNhNTcULjwYJwgcWvCjqLgPs/h7iQXQzsTT0=,2026-06-13 18:35:41.728266,0,kemunto5,FAITH,ONDIEKI,kemunto5@gmail.com,0,1,2026-06-13 18:35:07.200859,student,0769976297,Finance
+6,pbkdf2_sha256$1000000$S2Wgf6T7eaa68gDtIItqB8$ACdhYA0MCbsk7fWySqs3BGvRdIFpmQvygoFT9crO1kE=,2026-06-13 18:39:04.133613,0,collins700,Collins,Ondieki,collins700@gmail.com,0,1,2026-06-13 18:38:33.868639,student,0769976297,ICT
+7,pbkdf2_sha256$1000000$dDz15Y0nLI7PWRXqTR7eT5$R23iC4d8PLHVepPq3SBa/dY8Ll324Q8tt9vx2VDS82I=,2026-06-13 18:42:29.989973,0,nyabiage2,Nivah,Nyabiage,nyabiage2@gmail.com,0,1,2026-06-13 18:42:06.216517,student,0769976297,Education
+8,pbkdf2_sha256$1000000$62aDouhKRGQXj9m6OXpx9K$exU1Gb6FZjo5SH5JWI0NIOMl/PEe5AvZzYxqWJtWoXI=,2026-06-13 18:45:44.974342,0,obonyo67,JOASH,OBONYO,obonyo67@gmail.com,0,1,2026-06-13 18:45:23.292001,student,0769976297,Education
+9,pbkdf2_sha256$1000000$dHgPT9L4TUV6g5rmfC7747$YH5doEah7++aot8OqstL9IAbgkm9Qb4RPjjZgTBcjK4=,2026-06-13 18:48:26.405103,0,sheila23,SHEILA,KEMUNTO,sheila23@gmail.com,0,1,2026-06-13 18:48:06.318033,student,0769976297,Education

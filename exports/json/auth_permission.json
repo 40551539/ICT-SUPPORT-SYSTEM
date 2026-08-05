@@ -1,0 +1,314 @@
+[
+  {
+    "id": 1,
+    "content_type_id": 1,
+    "codename": "add_logentry",
+    "name": "Can add log entry"
+  },
+  {
+    "id": 2,
+    "content_type_id": 1,
+    "codename": "change_logentry",
+    "name": "Can change log entry"
+  },
+  {
+    "id": 3,
+    "content_type_id": 1,
+    "codename": "delete_logentry",
+    "name": "Can delete log entry"
+  },
+  {
+    "id": 4,
+    "content_type_id": 1,
+    "codename": "view_logentry",
+    "name": "Can view log entry"
+  },
+  {
+    "id": 5,
+    "content_type_id": 2,
+    "codename": "add_permission",
+    "name": "Can add permission"
+  },
+  {
+    "id": 6,
+    "content_type_id": 2,
+    "codename": "change_permission",
+    "name": "Can change permission"
+  },
+  {
+    "id": 7,
+    "content_type_id": 2,
+    "codename": "delete_permission",
+    "name": "Can delete permission"
+  },
+  {
+    "id": 8,
+    "content_type_id": 2,
+    "codename": "view_permission",
+    "name": "Can view permission"
+  },
+  {
+    "id": 9,
+    "content_type_id": 3,
+    "codename": "add_group",
+    "name": "Can add group"
+  },
+  {
+    "id": 10,
+    "content_type_id": 3,
+    "codename": "change_group",
+    "name": "Can change group"
+  },
+  {
+    "id": 11,
+    "content_type_id": 3,
+    "codename": "delete_group",
+    "name": "Can delete group"
+  },
+  {
+    "id": 12,
+    "content_type_id": 3,
+    "codename": "view_group",
+    "name": "Can view group"
+  },
+  {
+    "id": 13,
+    "content_type_id": 4,
+    "codename": "add_contenttype",
+    "name": "Can add content type"
+  },
+  {
+    "id": 14,
+    "content_type_id": 4,
+    "codename": "change_contenttype",
+    "name": "Can change content type"
+  },
+  {
+    "id": 15,
+    "content_type_id": 4,
+    "codename": "delete_contenttype",
+    "name": "Can delete content type"
+  },
+  {
+    "id": 16,
+    "content_type_id": 4,
+    "codename": "view_contenttype",
+    "name": "Can view content type"
+  },
+  {
+    "id": 17,
+    "content_type_id": 5,
+    "codename": "add_session",
+    "name": "Can add session"
+  },
+  {
+    "id": 18,
+    "content_type_id": 5,
+    "codename": "change_session",
+    "name": "Can change session"
+  },
+  {
+    "id": 19,
+    "content_type_id": 5,
+    "codename": "delete_session",
+    "name": "Can delete session"
+  },
+  {
+    "id": 20,
+    "content_type_id": 5,
+    "codename": "view_session",
+    "name": "Can view session"
+  },
+  {
+    "id": 21,
+    "content_type_id": 6,
+    "codename": "add_user",
+    "name": "Can add user"
+  },
+  {
+    "id": 22,
+    "content_type_id": 6,
+    "codename": "change_user",
+    "name": "Can change user"
+  },
+  {
+    "id": 23,
+    "content_type_id": 6,
+    "codename": "delete_user",
+    "name": "Can delete user"
+  },
+  {
+    "id": 24,
+    "content_type_id": 6,
+    "codename": "view_user",
+    "name": "Can view user"
+  },
+  {
+    "id": 25,
+    "content_type_id": 7,
+    "codename": "add_emailverification",
+    "name": "Can add email verification"
+  },
+  {
+    "id": 26,
+    "content_type_id": 7,
+    "codename": "change_emailverification",
+    "name": "Can change email verification"
+  },
+  {
+    "id": 27,
+    "content_type_id": 7,
+    "codename": "delete_emailverification",
+    "name": "Can delete email verification"
+  },
+  {
+    "id": 28,
+    "content_type_id": 7,
+    "codename": "view_emailverification",
+    "name": "Can view email verification"
+  },
+  {
+    "id": 29,
+    "content_type_id": 8,
+    "codename": "add_attachment",
+    "name": "Can add attachment"
+  },
+  {
+    "id": 30,
+    "content_type_id": 8,
+    "codename": "change_attachment",
+    "name": "Can change attachment"
+  },
+  {
+    "id": 31,
+    "content_type_id": 8,
+    "codename": "delete_attachment",
+    "name": "Can delete attachment"
+  },
+  {
+    "id": 32,
+    "content_type_id": 8,
+    "codename": "view_attachment",
+    "name": "Can view attachment"
+  },
+  {
+    "id": 33,
+    "content_type_id": 9,
+    "codename": "add_category",
+    "name": "Can add category"
+  },
+  {
+    "id": 34,
+    "content_type_id": 9,
+    "codename": "change_category",
+    "name": "Can change category"
+  },
+  {
+    "id": 35,
+    "content_type_id": 9,
+    "codename": "delete_category",
+    "name": "Can delete category"
+  },
+  {
+    "id": 36,
+    "content_type_id": 9,
+    "codename": "view_category",
+    "name": "Can view category"
+  },
+  {
+    "id": 37,
+    "content_type_id": 10,
+    "codename": "add_comment",
+    "name": "Can add comment"
+  },
+  {
+    "id": 38,
+    "content_type_id": 10,
+    "codename": "change_comment",
+    "name": "Can change comment"
+  },
+  {
+    "id": 39,
+    "content_type_id": 10,
+    "codename": "delete_comment",
+    "name": "Can delete comment"
+  },
+  {
+    "id": 40,
+    "content_type_id": 10,
+    "codename": "view_comment",
+    "name": "Can view comment"
+  },
+  {
+    "id": 41,
+    "content_type_id": 11,
+    "codename": "add_ticket",
+    "name": "Can add ticket"
+  },
+  {
+    "id": 42,
+    "content_type_id": 11,
+    "codename": "change_ticket",
+    "name": "Can change ticket"
+  },
+  {
+    "id": 43,
+    "content_type_id": 11,
+    "codename": "delete_ticket",
+    "name": "Can delete ticket"
+  },
+  {
+    "id": 44,
+    "content_type_id": 11,
+    "codename": "view_ticket",
+    "name": "Can view ticket"
+  },
+  {
+    "id": 45,
+    "content_type_id": 12,
+    "codename": "add_feedback",
+    "name": "Can add feedback"
+  },
+  {
+    "id": 46,
+    "content_type_id": 12,
+    "codename": "change_feedback",
+    "name": "Can change feedback"
+  },
+  {
+    "id": 47,
+    "content_type_id": 12,
+    "codename": "delete_feedback",
+    "name": "Can delete feedback"
+  },
+  {
+    "id": 48,
+    "content_type_id": 12,
+    "codename": "view_feedback",
+    "name": "Can view feedback"
+  },
+  {
+    "id": 49,
+    "content_type_id": 13,
+    "codename": "add_internalnote",
+    "name": "Can add internal note"
+  },
+  {
+    "id": 50,
+    "content_type_id": 13,
+    "codename": "change_internalnote",
+    "name": "Can change internal note"
+  },
+  {
+    "id": 51,
+    "content_type_id": 13,
+    "codename": "delete_internalnote",
+    "name": "Can delete internal note"
+  },
+  {
+    "id": 52,
+    "content_type_id": 13,
+    "codename": "view_internalnote",
+    "name": "Can view internal note"
+  }
+]

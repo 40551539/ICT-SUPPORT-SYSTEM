@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Network & Internet",
+    "description": "WiFi, internet connectivity, VPN, and network issues",
+    "default_technician_id": null
+  },
+  {
+    "id": 2,
+    "name": "Hardware",
+    "description": "Printer setup, device configuration, and peripheral issues",
+    "default_technician_id": null
+  },
+  {
+    "id": 3,
+    "name": "Software",
+    "description": "Application installation, updates, and software issues",
+    "default_technician_id": null
+  },
+  {
+    "id": 4,
+    "name": "Student Portal",
+    "description": "Student portal access, password, and account issues",
+    "default_technician_id": null
+  },
+  {
+    "id": 5,
+    "name": "Email & Accounts",
+    "description": "Email configuration, account access, and password resets",
+    "default_technician_id": null
+  },
+  {
+    "id": 6,
+    "name": "System Access",
+    "description": "Login issues, access permissions, and account lockouts",
+    "default_technician_id": null
+  },
+  {
+    "id": 7,
+    "name": "General IT Support",
+    "description": "Other IT-related issues",
+    "default_technician_id": null
+  }
+]

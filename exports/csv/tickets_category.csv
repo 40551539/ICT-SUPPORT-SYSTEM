@@ -1,0 +1,8 @@
+id,name,description,default_technician_id
+1,Network & Internet,"WiFi, internet connectivity, VPN, and network issues",
+2,Hardware,"Printer setup, device configuration, and peripheral issues",
+3,Software,"Application installation, updates, and software issues",
+4,Student Portal,"Student portal access, password, and account issues",
+5,Email & Accounts,"Email configuration, account access, and password resets",
+6,System Access,"Login issues, access permissions, and account lockouts",
+7,General IT Support,Other IT-related issues,

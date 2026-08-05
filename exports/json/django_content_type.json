@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "app_label": "admin",
+    "model": "logentry"
+  },
+  {
+    "id": 2,
+    "app_label": "auth",
+    "model": "permission"
+  },
+  {
+    "id": 3,
+    "app_label": "auth",
+    "model": "group"
+  },
+  {
+    "id": 4,
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  },
+  {
+    "id": 5,
+    "app_label": "sessions",
+    "model": "session"
+  },
+  {
+    "id": 6,
+    "app_label": "users",
+    "model": "user"
+  },
+  {
+    "id": 7,
+    "app_label": "users",
+    "model": "emailverification"
+  },
+  {
+    "id": 8,
+    "app_label": "tickets",
+    "model": "attachment"
+  },
+  {
+    "id": 9,
+    "app_label": "tickets",
+    "model": "category"
+  },
+  {
+    "id": 10,
+    "app_label": "tickets",
+    "model": "comment"
+  },
+  {
+    "id": 11,
+    "app_label": "tickets",
+    "model": "ticket"
+  },
+  {
+    "id": 12,
+    "app_label": "tickets",
+    "model": "feedback"
+  },
+  {
+    "id": 13,
+    "app_label": "tickets",
+    "model": "internalnote"
+  }
+]
